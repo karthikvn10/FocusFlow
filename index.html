@@ -1,39 +1,98 @@
 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>FocusFlow - To-Do List</title>
-  <link rel="stylesheet" href="style.css">
-  <script src="script.js" defer></script>
+  <title>FocusFlow | My Tasks</title>
+  <link rel="stylesheet" href="./style.css">
+  <script src="./script.js" defer></script>
 </head>
 <body>
-  <header>
-    <h1>FocusFlow</h1>
-    <p>Organize your day. Focus on what matters.</p>
+  <header class="header">
+    <div>
+      <h1>FocusFlow <span>✦</span></h1>
+      <p>Make today count, one task at a time.</p>
+    </div>
+    <button id="themeButton" class="secondary" type="button">🌙 Theme</button>
   </header>
 
-  <main>
-    <section class="task-entry">
-      <h2>Add a task</h2>
+  <main class="container">
+    <section class="welcome">
+      <p class="eyebrow">YOUR PERSONAL WORKSPACE</p>
+      <h2>Let's get things done.</h2>
+      <p>Add your tasks and make progress every day.</p>
+    </section>
+
+    <section class="stats">
+      <article class="stat-card">
+        <span>Total tasks</span>
+        <strong id="totalCount">0</strong>
+      </article>
+      <article class="stat-card">
+        <span>Completed</span>
+        <strong id="completedCount">0</strong>
+      </article>
+      <article class="stat-card">
+        <span>Remaining</span>
+        <strong id="remainingCount">0</strong>
+      </article>
+    </section>
+
+    <section class="panel">
+      <h2>Add a new task</h2>
       <form id="taskForm">
-        <input id="taskInput" type="text" placeholder="What do you need to do?" required>
-        <input id="dueDate" type="date" aria-label="Due date">
-        <button type="submit">+ Add Task</button>
+        <label for="taskInput">Task name</label>
+        <input
+          id="taskInput"
+          type="text"
+          placeholder="e.g. Complete my assignment"
+          maxlength="150"
+          required
+        >
+
+        <div class="form-row">
+          <div>
+            <label for="dueDate">Due date (optional)</label>
+            <input id="dueDate" type="date">
+          </div>
+          <div>
+            <label for="priority">Priority</label>
+            <select id="priority">
+              <option value="Low">Low</option>
+              <option value="Medium" selected>Medium</option>
+              <option value="High">High</option>
+            </select>
+          </div>
+        </div>
+
+        <button class="add-button" type="submit">+ Add Task</button>
+        <p id="formMessage" role="status" aria-live="polite"></p>
       </form>
     </section>
 
-    <section>
-      <h2>My Tasks</h2>
-      <p id="taskCount">0 tasks</p>
-      <ul id="taskList"></ul>
-    </section>
-  </main>
+    <section class="panel">
+      <div class="list-heading">
+        <div>
+          <h2>My tasks</h2>
+          <p>Keep track of what matters.</p>
+        </div>
+        <select id="filterTasks" aria-label="Filter tasks">
+          <option value="all">All tasks</option>
+          <option value="active">Active</option>
+          <option value="completed">Completed</option>
+        </select>
+      </div>
 
-  <footer>
-    <p>Made with ❤️ using HTML, CSS and JavaScript</p>
-  </footer>
+      <ul id="taskList"></ul>
+      <p id="emptyMessage">No tasks yet. Add your first task above!</p>
+      <button id="clearCompleted" class="secondary" type="button">
+        Clear completed tasks
+      </button>
+    </section>
+
+    <footer>Built with focus ♥</footer>
+  </main>
 </body>
 </html>
-
