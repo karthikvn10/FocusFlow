@@ -1,1 +1,39 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FocusFlow - To-Do List</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header>
+    <h1>FocusFlow</h1>
+    <p>Organize your day. Focus on what matters.</p>
+  </header>
+
+  <main>
+    <section class="task-entry">
+      <h2>Add a task</h2>
+      <form id="taskForm">
+        <input id="taskInput" type="text" placeholder="What do you need to do?" required>
+        <input id="dueDate" type="date" aria-label="Due date">
+        <button type="submit">+ Add Task</button>
+      </form>
+    </section>
+
+    <section>
+      <h2>My Tasks</h2>
+      <p id="taskCount">0 tasks</p>
+      <ul id="taskList"></ul>
+    </section>
+  </main>
+
+  <footer>
+    <p>Made with ❤️ using HTML, CSS and JavaScript</p>
+  </footer>
+</body>
+</html>
+
